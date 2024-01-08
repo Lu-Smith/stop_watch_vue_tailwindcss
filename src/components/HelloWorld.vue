@@ -20,10 +20,12 @@ function pause() {
   <h2 class="font-semibold text-2xl">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
     <span>{{ timeElappsed }}</span>
-    <div class="flex flex-row justify-center items-center gap-4">
-      <button @click="start">start</button>
-      <button @click="pause">pause</button>
-      <button>restart</button>
+    <div>
+      <button v-if="interval === undefined" @click="start">start</button>
+      <div v-else class="flex flex-row justify-center items-center gap-4">
+        <button @click="pause">pause</button>
+        <button>restart</button>
+      </div>
     </div>
   </div>
 </template>
