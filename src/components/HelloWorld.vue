@@ -3,11 +3,16 @@ import { ref } from 'vue';
 defineProps<{ msg: string }>();
 
 const timeElappsed = ref(0);
+const interval = ref<number | undefined>(undefined);
 
 function start() {
-  const interval = setInterval(( ) => {
+  interval.value = setInterval(( ) => {
     timeElappsed.value ++
-  }, 1000)
+  }, 1000);
+}
+
+function pause() {
+  clearInterval(interval.value);
 }
 </script>
 
@@ -17,7 +22,7 @@ function start() {
     <span>{{ timeElappsed }}</span>
     <div class="flex flex-row justify-center items-center gap-4">
       <button @click="start">start</button>
-      <button>pause</button>
+      <button @click="pause">pause</button>
       <button>restart</button>
     </div>
   </div>
