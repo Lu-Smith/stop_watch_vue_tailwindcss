@@ -1,19 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 defineProps<{ msg: string }>()
-
-const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
+  <h2 class="font-semibold text-2xl">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      😎
-    </p>
+    <span>00:00</span>
   </div>
 </template>
 
