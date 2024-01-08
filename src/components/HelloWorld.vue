@@ -18,6 +18,12 @@ function pause() {
   clearInterval(interval.value);
 }
 
+function restart() {
+  state.value = "stopped";
+  clearInterval(interval.value);
+  interval.value = undefined;
+  timeElappsed.value = 0;
+}
 </script>
 
 <template>
@@ -25,10 +31,18 @@ function pause() {
   <div class="flex flex-col justify-center items-center gap-4">
     <span>{{ timeElappsed }}</span>
     <div class="flex flex-row justify-center items-center gap-4">
-      <button v-if="state === 'stopped'" @click="start">start</button>
-      <button v-if="state === 'running'" @click="pause">pause</button>
-      <button v-if="state === 'paused'" @click="start">resume</button>
-      <button v-if="state === 'running' || state === 'paused'">restart</button>
+      <button 
+      v-if="state === 'stopped'" 
+      @click="start">start</button>
+      <button
+      v-if="state === 'running'" 
+      @click="pause">pause</button>
+      <button 
+      v-if="state === 'paused'" 
+      @click="start">resume</button>
+      <button 
+      v-if="state === 'running' || state === 'paused'"
+      @click="restart">restart</button>
     </div>
   </div>
 </template>
