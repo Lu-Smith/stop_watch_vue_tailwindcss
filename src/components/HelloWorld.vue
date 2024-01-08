@@ -26,8 +26,8 @@ function restart() {
 }
 
 function formatTime(elapsedTime: number) {
-  const minutes = Math.floor(elapsedTime / 60);
-  const seconds = elapsedTime % 60;
+  const minutes = `0${Math.floor(elapsedTime / 60)}`.slice(-2);
+  const seconds = `0${elapsedTime % 60}`.slice(-2);
   return `${minutes}:${seconds}`
 }
 </script>
