@@ -1,6 +1,6 @@
 <template>
     <h3 class="fixed bottom-4 right-4 w-ful text-sm mt-2 bg-bgColor 
-    p-2 rounded text-addColor">
+    p-2 rounded text-textColor font-semibold">
         Coded by 
         <a 
         href="https://www.lunasmithart.com/" 
