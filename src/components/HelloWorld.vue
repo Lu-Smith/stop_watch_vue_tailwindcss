@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 defineProps<{ msg: string }>();
+
+const timeElappsed = ref(0);
 
 function start() {
   const interval = setInterval(( ) => {
