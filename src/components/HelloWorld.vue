@@ -2,16 +2,19 @@
 import { ref } from 'vue';
 defineProps<{ msg: string }>();
 
+const state = ref<"stopped" | "running" | "paused">("stopped");
 const timeElappsed = ref(0);
 const interval = ref<number | undefined>(undefined);
 
 function start() {
+  state.value = "running";
   interval.value = setInterval(( ) => {
     timeElappsed.value ++
   }, 1000);
 }
 
 function pause() {
+  state.value = "paused";
   clearInterval(interval.value);
 }
 </script>
@@ -20,12 +23,10 @@ function pause() {
   <h2 class="font-semibold text-2xl">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
     <span>{{ timeElappsed }}</span>
-    <div>
-      <button v-if="interval === undefined" @click="start">start</button>
-      <div v-else class="flex flex-row justify-center items-center gap-4">
-        <button @click="pause">pause</button>
-        <button>restart</button>
-      </div>
+    <div class="flex flex-row justify-center items-center gap-4">
+      <button v-if="state === 'stopped'" @click="start">start</button>
+      <button v-if="state === 'running'" @click="pause">pause</button>
+      <button v-if="state === 'running' || state === 'paused'">restart</button>
     </div>
   </div>
 </template>
