@@ -54,7 +54,7 @@ function formatTime(elapsedTime: number) {
       v-if="state === 'paused'" 
       @click="start">resume</button>
       <button 
-      class="bg-linksColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
+      class="bg-textColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
       ease-in-out drop-shadow-md hover:filter-none"
       v-if="state === 'running' || state === 'paused'"
       @click="restart">restart</button>
