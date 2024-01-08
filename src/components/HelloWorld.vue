@@ -35,7 +35,8 @@ function formatTime(elapsedTime: number) {
 <template>
   <h2 class="font-semibold text-2xl">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
-    <span>{{ formatTime(elapsedTime) }}</span>
+    <span class="bg-addColor px-8 py-14 rounded-full text-4xl
+    border-spacing-2 border-linksColor border-8">{{ formatTime(elapsedTime) }}</span>
     <div class="flex flex-row justify-center items-center gap-4">
       <button 
       v-if="state === 'stopped'" 
