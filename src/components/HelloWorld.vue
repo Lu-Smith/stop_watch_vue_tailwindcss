@@ -17,6 +17,7 @@ function pause() {
   state.value = "paused";
   clearInterval(interval.value);
 }
+
 </script>
 
 <template>
@@ -26,6 +27,7 @@ function pause() {
     <div class="flex flex-row justify-center items-center gap-4">
       <button v-if="state === 'stopped'" @click="start">start</button>
       <button v-if="state === 'running'" @click="pause">pause</button>
+      <button v-if="state === 'paused'" @click="start">resume</button>
       <button v-if="state === 'running' || state === 'paused'">restart</button>
     </div>
   </div>
