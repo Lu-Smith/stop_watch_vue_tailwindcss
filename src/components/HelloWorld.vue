@@ -3,13 +3,13 @@ import { ref } from 'vue';
 defineProps<{ msg: string }>();
 
 const state = ref<"stopped" | "running" | "paused">("stopped");
-const timeElappsed = ref(0);
+const elapsedTime = ref<number>(0);
 const interval = ref<number | undefined>(undefined);
 
 function start() {
   state.value = "running";
   interval.value = setInterval(( ) => {
-    timeElappsed.value ++
+    elapsedTime.value ++
   }, 1000);
 }
 
@@ -22,14 +22,20 @@ function restart() {
   state.value = "stopped";
   clearInterval(interval.value);
   interval.value = undefined;
-  timeElappsed.value = 0;
+  elapsedTime.value = 0;
+}
+
+function formatTime(elapsedTime: number) {
+  const minutes = Math.floor(elapsedTime / 60);
+  const seconds = elapsedTime % 60;
+  return `${minutes}:${seconds}`
 }
 </script>
 
 <template>
   <h2 class="font-semibold text-2xl">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
-    <span>{{ timeElappsed }}</span>
+    <span>{{ formatTime(elapsedTime) }}</span>
     <div class="flex flex-row justify-center items-center gap-4">
       <button 
       v-if="state === 'stopped'" 
