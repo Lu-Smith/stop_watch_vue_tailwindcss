@@ -35,8 +35,9 @@ function formatTime(elapsedTime: number) {
 <template>
   <h2 class="font-semibold text-2xl mt-8">{{ msg }}</h2>
   <div class="flex flex-col justify-center items-center gap-4">
-    <span class="bg-addColor px-8 py-14 rounded-full text-4xl
-    border-spacing-2 border-linksColor border-8 text-bgColor">{{ formatTime(elapsedTime) }}</span>
+    <span class="hover:bg-addColor px-8 py-14 rounded-full text-4xl
+    bg-textColor border-addColor transition-all duration-300 ease-in-out
+    border-spacing-2 hover:border-linksColor border-8 text-bgColor">{{ formatTime(elapsedTime) }}</span>
     <div class="flex flex-row justify-center items-center gap-4 mt-4">
       <button 
       class="bg-linksColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
