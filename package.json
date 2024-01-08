@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^10.17.9",
     "vue": "^3.3.11"
   },
   "devDependencies": {
