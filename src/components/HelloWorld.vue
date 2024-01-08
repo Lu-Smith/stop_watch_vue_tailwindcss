@@ -41,17 +41,17 @@ function formatTime(elapsedTime: number) {
     <div class="flex flex-row justify-center items-center gap-4 mt-4">
       <button 
       class="bg-linksColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
-      ease-in-out drop-shadow-md hover:filter-none"
+      ease-in-out drop-shadow-md hover:filter-none font-semibold"
       v-if="state === 'stopped'"
       @click="start">start</button>
       <button
       class="bg-linksColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
-      ease-in-out drop-shadow-md hover:filter-none"
+      ease-in-out drop-shadow-md hover:filter-none font-semibold"
       v-if="state === 'running'" 
       @click="pause">pause</button>
       <button 
       class="bg-linksColor px-4 py-2 text-bgColor hover:bg-addColor rounded transition-all duration-300
-      ease-in-out drop-shadow-md hover:filter-none"
+      ease-in-out drop-shadow-md hover:filter-none font-semibold"
       v-if="state === 'paused'" 
       @click="start">resume</button>
       <button 
